@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal: Advanced Excel Mastery | JW Business Solution x Grace Kennedy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chosen Palette: Corporate Financial (Neutral-50, Red-700, Black/Slate-900) -->
+    <!-- Application Structure Plan: The SPA is designed as an "Interactive Pitch Deck." The architecture follows a linear narrative: Problem -> Solution -> Technical Depth -> Investment. This flow is chosen because a proposal must guide the decision-maker through a logical argument. Key interactions include a "Before vs. After" efficiency toggle and a "Technical Deep Dive" accordion that focuses on the ROI of each module. This ensures the proposal feels like a formal document but utilizes interactive elements to prove technical competence. -->
+    <!-- Visualization & Content Choices: 
+         1. Executive Brief -> Inform -> Professional Text Blocks -> Sets the professional tone.
+         2. Efficiency Gap -> Compare -> Interactive Bar Chart (Chart.js) -> Shows the 90% time reduction. Justification: Visual proof of ROI is essential for Grace Kennedy's L&D leads.
+         3. Technical Pillars -> Organize -> Detail Selectors -> Expounds on specific class content and technical outcomes. Justification: Prevents information overload while allowing a deep dive.
+         4. Investment Tiering -> Compare -> Pricing Toggle -> Switches between Group and Individual models to show tailored value.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        .pillar-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pillar-card:hover {
+            border-color: #b91c1c;
+            background-color: #fafafa;
+        }
+        .active-pillar {
+            border-color: #b91c1c;
+            background-color: #fef2f2;
+            box-shadow: 0 10px 15px -3px rgba(185, 28, 28, 0.1);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+    </style>
+</head>
+<body class="bg-neutral-50 text-slate-900 antialiased">
+
+    <!-- Header / Letterhead Top -->
+    <header class="bg-white border-b border-neutral-200 sticky top-0 z-50">
+        <div class="h-2 flex w-full">
+            <div class="bg-black w-1/3"></div>
+            <div class="bg-red-700 w-2/3"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-xl border-2 border-red-700">JW</div>
+                <div>
+                    <p class="font-extrabold text-sm tracking-widest uppercase">JW Business Solution</p>
+                    <p class="text-[10px] text-slate-500 uppercase font-bold tracking-tight">Advanced Analytics Proposal</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-600">
+                <a href="#summary" class="hover:text-red-700 transition-colors">Summary</a>
+                <a href="#curriculum" class="hover:text-red-700 transition-colors">Curriculum</a>
+                <a href="#investment" class="hover:text-red-700 transition-colors">Investment</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-24">
+
+        <!-- Executive Summary Section -->
+        <section id="summary" class="space-y-12">
+            <div class="max-w-4xl">
+                <p class="text-red-700 font-bold uppercase tracking-[0.2em] text-sm mb-4">Engagement Brief</p>
+                <h1 class="text-5xl font-extrabold text-slate-900 leading-tight mb-8">
+                    Advancing Financial Analytics at <span class="text-red-700">Grace Kennedy Ltd.</span>
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed">
+                    This proposal is designed to transition your team from standard spreadsheet users to high-performance **Data Architects**. At Grace Kennedy, where data complexity is high, the "modern Excel stack" is not just a tool—it is a competitive advantage.
+                </p>
+            </div>
+
+            <!-- Context: This introductory block explains the "Why". It establishes the high ROI for the Grace Kennedy team by focusing on the 90% retrieval efficiency gain. -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-2xl shadow-sm border border-neutral-200">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-slate-900">The Efficiency Gap</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Most finance teams lose 15+ hours per week on manual data preparation. Our curriculum targets this specific bottleneck, replacing manual copy-pasting with automated ETL (Extract, Transform, Load) pipelines.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-2 h-2 rounded-full bg-red-700"></div>
+                            <p class="text-sm font-semibold">90% Reduction in Data Retrieval Time</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-2 h-2 rounded-full bg-red-700"></div>
+                            <p class="text-sm font-semibold">100% Dynamic, Self-Healing Models</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-2 h-2 rounded-full bg-red-700"></div>
+                            <p class="text-sm font-semibold">Leadership-Ready BI Dashboards</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral-50 rounded-xl p-6">
+                    <p class="text-center text-[10px] font-bold text-slate-400 uppercase mb-4 tracking-widest">Efficiency Projection: Manual vs. Automated</p>
+                    <div class="chart-container">
+                        <canvas id="efficiencyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Pillars Section -->
+        <section id="curriculum" class="space-y-12">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl font-extrabold text-slate-900">Technical Pillar Exploration</h2>
+                <p class="mt-4 text-slate-600 text-lg">
+                    This interactive matrix expounds on the specific class content and technical outcomes. Select a pillar to reveal the roadmap for student mastery.
+                </p>
+            </div>
+
+            <!-- Context: This section acts as the "Meat" of the proposal. It breaks down technical jargon into business outcomes, allowing the L&D leads at GK to see exactly what their students will be able to do post-training. -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-4 flex flex-col gap-3" id="pillar-menu">
+                    <!-- JS will populate pillars here -->
+                </div>
+
+                <div class="lg:col-span-8 bg-white rounded-3xl border border-neutral-200 shadow-xl p-10 min-h-[600px] flex flex-col">
+                    <div id="detail-header" class="border-b border-neutral-100 pb-8 mb-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-3xl font-extrabold text-slate-900" id="detail-title">Select a Pillar</h3>
+                            <span id="detail-badge" class="bg-red-700 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Mastery</span>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed italic" id="detail-intro">Select a module on the left to see full curriculum details and what the student should expect to master.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 flex-grow">
+                        <div>
+                            <p class="text-xs font-bold text-red-700 uppercase tracking-widest mb-4">Technical Curriculum</p>
+                            <ul class="space-y-3" id="detail-content">
+                                <!-- JS will populate list here -->
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-red-700 uppercase tracking-widest mb-4">Learning Outcomes</p>
+                            <div class="space-y-4" id="detail-outcomes">
+                                <!-- JS will populate outcomes here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 p-6 bg-neutral-50 rounded-2xl border border-neutral-100">
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Student Experience</p>
+                        <p class="text-sm text-slate-600 leading-relaxed" id="detail-experience">
+                            Students will experience an 80/20 split between hands-on build-outs and theory. Expect a collaborative, problem-solving environment using real Grace Kennedy data scenarios.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Section -->
+        <section id="investment" class="gradient-bg text-white rounded-[3rem] p-10 md:p-16 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-10 opacity-10 pointer-events-none">
+                <div class="text-[10rem] font-black leading-none uppercase">GK</div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+                <div class="space-y-8">
+                    <h2 class="text-4xl font-extrabold">Strategic Logistics</h2>
+                    <p class="text-slate-400 text-lg">
+                        Our engagement model is designed for maximum impact with minimal disruption to Grace Kennedy's daily operations.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-1 h-auto bg-red-700"></div>
+                            <div>
+                                <p class="font-bold text-white uppercase text-xs tracking-widest mb-1">Duration</p>
+                                <p class="text-slate-300">2-Day Intensive (or 4 Half-Day Virtual Sessions)</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-1 h-auto bg-red-700"></div>
+                            <div>
+                                <p class="font-bold text-white uppercase text-xs tracking-widest mb-1">The Participant Cap</p>
+                                <p class="text-slate-300">Max 15 Participants. This ensures a low instructor-to-student ratio for technical troubleshooting.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-1 h-auto bg-red-700"></div>
+                            <div>
+                                <p class="font-bold text-white uppercase text-xs tracking-widest mb-1">Post-Training Retainer</p>
+                                <p class="text-slate-300">14-day applied support to ensure students transition their learning into their actual Grace Kennedy workflows.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 border border-white/10">
+                    <div class="flex p-1 bg-black/40 rounded-2xl mb-12">
+                        <button id="toggle-corp" class="flex-1 py-3 text-xs font-bold rounded-xl bg-red-700 text-white transition-all uppercase tracking-widest">Corporate</button>
+                        <button id="toggle-ind" class="flex-1 py-3 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all uppercase tracking-widest">Individual</button>
+                    </div>
+
+                    <div class="text-center">
+                        <p id="price-label" class="text-slate-400 uppercase tracking-widest text-[10px] font-bold mb-3">Total Investment Package</p>
+                        <h3 id="price-value" class="text-6xl font-extrabold mb-10 tracking-tighter text-white">JMD $450k</h3>
+                        <div class="bg-white/5 p-6 rounded-2xl text-left space-y-4">
+                            <p class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2 border-b border-white/10 pb-2">Inclusions</p>
+                            <ul id="price-list" class="space-y-3 text-sm text-slate-300">
+                                <!-- JS Populates here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-black text-slate-500 py-16 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                    <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black font-bold text-sm border border-red-700">JW</div>
+                    <span class="text-white font-extrabold tracking-tighter text-xl">JW Business Solution</span>
+                </div>
+                <p class="max-w-xs text-xs leading-loose">
+                    Specializing in high-impact data transformation and financial analytics for Jamaica's leading conglomerates.
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-8 items-center text-[10px] font-bold uppercase tracking-[0.2em]">
+                <a href="mailto:jwsolutions4you@gmail.com" class="hover:text-red-500 transition-colors">jwsolutions4you@gmail.com</a>
+                <a href="tel:+18768899206" class="hover:text-red-500 transition-colors">+1 (876) 889-9206</a>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-[10px] opacity-25">
+            &copy; 2026 JW BUSINESS SOLUTION. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script>
+        // Analysis Data for Proposal Value
+        const efficiencyData = {
+            labels: ['Manual Entry', 'JW Automated Stack'],
+            datasets: [{
+                label: 'Hours Spent per Workflow',
+                data: [18, 2],
+                backgroundColor: ['#475569', '#b91c1c'],
+                borderRadius: 8,
+                barThickness: 40
+            }]
+        };
+
+        const efficiencyOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: { beginAtZero: true, grid: { display: false }, ticks: { display: false } },
+                x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 10, weight: 'bold' } } }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: { backgroundColor: '#1e293b', titleFont: { size: 12 }, bodyFont: { size: 11 } }
+            }
+        };
+
+        // Curriculum Deep Dive Data
+        const curriculum = [
+            {
+                id: 'architecture',
+                title: 'Data Architecture & Logic',
+                intro: 'Moving beyond VLOOKUP. Students master the dynamic array engine to build models that never break when data expands.',
+                value: 'Precision & Reliability',
+                content: [
+                    'Dynamic Array Formulas (FILTER, UNIQUE, SORT)',
+                    'The XLOOKUP vs Index/Match Mastery',
+                    'Nested Logic & Complex Boolean Structures',
+                    'Absolute vs Relative Reference Hybrid Modeling',
+                    'Optimizing Calculation Speed for Huge Files'
+                ],
+                outcomes: [
+                    'Eliminate "Broken Reference" errors in monthly reporting.',
+                    'Build models that auto-update as new rows are added.',
+                    'Reduce calculation lag in heavy workbook files.'
+                ],
+                experience: 'Students will construct a self-healing Retail Inventory system during this module.'
+            },
+            {
+                id: 'etl',
+                title: 'Intelligent ETL (Power Query)',
+                intro: 'Automation of data preparation. The core skill for analysts who want to recover 15 hours per week of manual work.',
+                value: 'Total Automation',
+                content: [
+                    'The Power Query "Get & Transform" Interface',
+                    'Consolidating Multiple Folders into One Master File',
+                    'Advanced Unpivoting for Analytical Readiness',
+                    'Automated Text Cleaning & Data Standardizing',
+                    'Creating Repeatable ETL Pipelines for Finance'
+                ],
+                outcomes: [
+                    'Recover 10-15 analyst hours per week.',
+                    'Consolidate monthly sales files with one click.',
+                    'Ensure data integrity across disparate GK business units.'
+                ],
+                experience: 'Class culminates in a live automated consolidation of 12 months of sales data in under 60 seconds.'
+            },
+            {
+                id: 'modeling',
+                title: 'Strategic Sensitivity Modeling',
+                intro: 'Predicting fiscal outcomes. Teaching students how to build sensitivity managers that calculate ROI variance instantly.',
+                value: 'Strategic Support',
+                content: [
+                    'What-If Analysis & Scenario Manager',
+                    'Two-Variable Data Table Construction',
+                    'Goal Seek & Solver for Optimized Constraints',
+                    'Financial Function Deep-Dive (NPV, IRR, PMT)',
+                    'Forecasting with Built-In Exponential Smoothing'
+                ],
+                outcomes: [
+                    'Identify break-even points for new projects instantly.',
+                    'Produce range-based forecasts for volatile market conditions.',
+                    'Empower senior leadership with deterministic ROI modeling.'
+                ],
+                experience: 'Students will build a multi-scenario ROI calculator for a hypothetical $50M investment.'
+            },
+            {
+                id: 'dashboards',
+                title: 'Interactive BI Dashboards',
+                intro: 'Leadership visualization. Transforming data into a boardroom-ready narrative using interactive reporting tools.',
+                value: 'Operational Clarity',
+                content: [
+                    'PivotTable Advanced Logic & Custom Grouping',
+                    'Interactive Slicer & Timeline Integration',
+                    'The "Traffic Light" Conditional Logic System',
+                    'Dashboard Layout Principles for Executive Review',
+                    'Dynamic Named Ranges for Chart Automation'
+                ],
+                outcomes: [
+                    'Synthesize complex data into a single-page visual report.',
+                    'Enable non-technical managers to filter their own insights.',
+                    'Automate the production of monthly Executive Packs.'
+                ],
+                experience: 'Students will present a fully interactive Sales Dashboard as their final certification project.'
+            }
+        ];
+
+        // Pricing Structure Data
+        const pricing = {
+            corporate: {
+                label: 'Group Investment Package',
+                value: 'JMD $450k',
+                list: [
+                    '✓ Up to 15 Participant Allocations',
+                    '✓ 14-Day Post-Training Applied Support Retainer',
+                    '✓ Personalized Diagnostic Skills Audit',
+                    '✓ Custom GK Business Unit Case Studies',
+                    '✓ Functional Team Grouping Strategy Session',
+                    '✓ Course Reference Manuals & Practice Assets'
+                ]
+            },
+            individual: {
+                label: 'Per Seat Allocation',
+                value: 'JMD $30k',
+                list: [
+                    '✓ Single seat in open mixed-cohort session',
+                    '✓ Standard curriculum delivery',
+                    '✓ Core technical practice files provided',
+                    '✕ Excludes Post-Training Retainer Support',
+                    '✕ Excludes GK Specific Case Customization'
+                ]
+            }
+        };
+
+        // UI Logic
+        function renderPillars() {
+            const menu = document.getElementById('pillar-menu');
+            curriculum.forEach((item, index) => {
+                const btn = document.createElement('div');
+                btn.className = `pillar-card bg-white p-6 rounded-2xl border border-neutral-200 cursor-pointer flex items-center justify-between group ${index === 0 ? 'active-pillar' : ''}`;
+                btn.innerHTML = `
+                    <div class="flex items-center gap-4">
+                        <span class="text-xs font-bold text-slate-300 group-hover:text-red-700 transition-colors">0${index+1}</span>
+                        <h4 class="font-bold text-slate-900">${item.title}</h4>
+                    </div>
+                    <span class="text-red-700 font-bold opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                `;
+                btn.onclick = () => selectPillar(index, btn);
+                menu.appendChild(btn);
+            });
+        }
+
+        function selectPillar(index, element) {
+            const data = curriculum[index];
+            document.querySelectorAll('.pillar-card').forEach(p => p.classList.remove('active-pillar'));
+            element.classList.add('active-pillar');
+
+            document.getElementById('detail-title').innerText = data.title;
+            document.getElementById('detail-badge').innerText = data.value;
+            document.getElementById('detail-intro').innerText = data.intro;
+            document.getElementById('detail-experience').innerText = data.experience;
+
+            const contentList = document.getElementById('detail-content');
+            contentList.innerHTML = '';
+            data.content.forEach(c => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start gap-3 text-sm text-slate-600';
+                li.innerHTML = `<span class="text-red-700 font-bold">•</span> ${c}`;
+                contentList.appendChild(li);
+            });
+
+            const outcomesList = document.getElementById('detail-outcomes');
+            outcomesList.innerHTML = '';
+            data.outcomes.forEach(o => {
+                const div = document.createElement('div');
+                div.className = 'bg-neutral-50 p-3 rounded-xl border border-neutral-100 text-xs font-medium text-slate-800 flex items-center gap-2';
+                div.innerHTML = `<span class="text-red-700 font-bold">✓</span> ${o}`;
+                outcomesList.appendChild(div);
+            });
+        }
+
+        function updatePricing(type) {
+            const data = pricing[type];
+            const btnCorp = document.getElementById('toggle-corp');
+            const btnInd = document.getElementById('toggle-ind');
+
+            if(type === 'corporate') {
+                btnCorp.classList.add('bg-red-700', 'text-white');
+                btnCorp.classList.remove('text-slate-400');
+                btnInd.classList.remove('bg-stone-700', 'text-white');
+                btnInd.classList.add('text-slate-400');
+            } else {
+                btnInd.classList.add('bg-stone-700', 'text-white');
+                btnInd.classList.remove('text-slate-400');
+                btnCorp.classList.remove('bg-red-700', 'text-white');
+                btnCorp.classList.add('text-slate-400');
+            }
+
+            document.getElementById('price-label').innerText = data.label;
+            document.getElementById('price-value').innerText = data.value;
+            
+            const list = document.getElementById('price-list');
+            list.innerHTML = '';
+            data.list.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = item;
+                list.appendChild(li);
+            });
+        }
+
+        // Init
+        window.onload = () => {
+            new Chart(document.getElementById('efficiencyChart'), {
+                type: 'bar',
+                data: efficiencyData,
+                options: efficiencyOptions
+            });
+
+            renderPillars();
+            selectPillar(0, document.querySelector('.pillar-card'));
+            updatePricing('corporate');
+
+            document.getElementById('toggle-corp').onclick = () => updatePricing('corporate');
+            document.getElementById('toggle-ind').onclick = () => updatePricing('individual');
+        };
+    </script>
+</body>
+</html>
